@@ -1,16 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import List from './components/List';
 function App() {
 
-  const [list, setList] = useState([]);
+  const [messages, setList] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:3000/messages')
-      .then((res) => res.json())
-      .then((data) => setList(data))
-      .catch((err) => console.error(err));
-  }, []);
+  const deleteMessage = (index) => {
+    setMessages(messages.filter((_, i) => i !== index));
+  };
+
 
   return (
     <div>

@@ -4,16 +4,18 @@ function NewMessage() {
 
     const [author, setAuthor] = useState('');
     const [content, setContent] = useState('');
+  const [editId, setEditId] = useState(null);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submitted");
         fetch('http://localhost:3000/messages', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ author, content })
         })
     };
+    
 
     return (
         <div>
