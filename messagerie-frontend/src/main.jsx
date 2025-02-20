@@ -1,13 +1,16 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import App from './App.jsx';
-import NewMessage from './NewMessage.jsx';
-import MessageList from './MessageList.jsx';
+import App from './App';
+import NewMessage from './NewMessage';
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
-  { path: '/new', element: <NewMessage /> },
-  { path: 'list', element: <MessageList /> }
+  { path: '/new', element: <NewMessage /> }
 ]);
 
-// ...
-<RouterProvider router={router} />
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
